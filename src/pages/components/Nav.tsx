@@ -9,12 +9,11 @@ export default function Nav(){
     console.log(matches)
     return(
         <footer className="relative mx-8 mb-24 flex flex-col justify-between pt-12 pb-6 font-medium md:mx-16 lg:mx-32">
-            <div className="fixed bottom-0 left-0 right-0 overflow-y-auto bg-gray-100">
-                <div className="">
-                
-                    {/* Title */}
+            
+            <div className="fixed bottom-0 left-0 right-0 overflow-y-auto bg-98-grey flex justify-between items-end">
 
-                    
+                    {/* Title */}
+             
                     {/* <h1 className="text-lg bottom-0 ml-0 font-bold float-left absolute">
                         <a href="/">dre</a>
                     </h1> */}
@@ -32,19 +31,8 @@ export default function Nav(){
                             </div>
                         </div>
                     </div>
+                    <div className='grow border-l border-black mr-3 h-max'></div>
 
-
-
-
-                    {!matches && (
-                        <div onClick={() => setToggled(prevToggle => !prevToggle)} 
-                        className="space-y-1 cursor-pointer xl:hidden">
-                            <span className="block h-0.5 w-8 bg-black"></span>
-                            <span className="block h-0.5 w-6 bg-black"></span>
-                            <span className="block h-0.5 w-4 bg-black"></span>
-                        </div>
-                    )}
-                </div>
             </div>
         </footer>
     )
