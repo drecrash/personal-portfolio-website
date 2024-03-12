@@ -27,9 +27,10 @@ export default function Wallpaper(){
     return(
         <div className=''>
             <div className='bg-98-blue h-screen '>
-                <div className=''>
-                    <Button id="div1" onClick={toggleVisibility} />
-
+                <div className='relative'>
+                    <div className='absolute'>
+                        <Button id="div1" onClick={toggleVisibility} icon='windows_folder_icon.png' name="resume"/>
+                    </div>
                     <FolderItem id="div1" isVisible={divs.div1} onClose={toggleVisibility}>
                         <div className='bg-white ml-[40%] absolute mt-[15%] pr-[20%]'>
                             <div className=''>
@@ -42,6 +43,7 @@ export default function Wallpaper(){
 
                             <div className=''>
                                 <h1 className='text-2xl font-bold'>hello there</h1>
+                                <embed src="resumeMarch2024.pdf" className=''/>
                             </div>
                             
                         </div>
@@ -50,7 +52,7 @@ export default function Wallpaper(){
 
                 <div className='pl-[20%] pt-[13%]'>
                     <h1 className='text-4xl'>
-                        i'm Andre
+                        i'm andre
                     </h1>
                     <h1 className='text-3xl'>
                         your favorite backend engineer
