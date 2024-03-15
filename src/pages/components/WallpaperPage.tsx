@@ -4,6 +4,8 @@ import { useMediaQuery } from '../../util/useMediaQuery'
 import FolderItem from './FolderItem.tsx'
 import Button from './Button.tsx'
 
+import PdfViewer from './PdfViewer.tsx'
+
 
 export default function Wallpaper(){
     const [divs, setDivs] = useState<{ [id: string]: boolean }>({
@@ -32,7 +34,7 @@ export default function Wallpaper(){
                         <Button id="div1" onClick={toggleVisibility} icon='windows_folder_icon.png' name="resume"/>
                     </div>
                     <FolderItem id="div1" isVisible={divs.div1} onClose={toggleVisibility}>
-                        <div className='bg-white ml-[40%] absolute mt-[15%] pr-[20%]'>
+                        <div className='bg-white ml-[40%] absolute mt-[15%]'>
                             <div className=''>
                                 <button 
                                 className=''
@@ -41,10 +43,7 @@ export default function Wallpaper(){
                                 </button>
                             </div>
 
-                            <div className=''>
-                                <h1 className='text-2xl font-bold'>hello there</h1>
-                                <embed src="resumeMarch2024.pdf" className=''/>
-                            </div>
+                            <PdfViewer pdfUrl="resumeMarch2024.pdf" />
                             
                         </div>
                     </FolderItem>
