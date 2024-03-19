@@ -14,21 +14,10 @@ const FolderItem = ({ id, isVisible, onClose, children }: DraggableDivProps) => 
 
   return (
     <Draggable>
-      <Rnd
-        default={{
-          x: 0,
-          y: 0,
-          width: 320,
-          height: 200,
-        }}
-        minWidth={200}
-        minHeight={100}
-        bounds="parent"
-      >
         <div>
           {children}
         </div>
-      </Rnd>
+
     </Draggable>
   );
 };

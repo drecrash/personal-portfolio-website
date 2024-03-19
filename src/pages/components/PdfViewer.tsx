@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
 
-type Props = {
+// Set the worker source to asynchronously load PDF files
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+interface PDFViewerProps {
   pdfUrl: string;
-};
+  pageNumber: number;
+}
 
-const PDFViewer: React.FC<Props> = ({ pdfUrl }) => {
-  const [numPages, setNumPages] = useState<number | null>(null);
-  const [pageNumber, setPageNumber] = useState(1);
+const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, pageNumber }) => {
+  const pageStyle: React.CSSProperties = {
+    width: 612, // Width in points (8.5 inches)
+    height: 792, // Height in points (11 inches)
+  };
 
-  // Function to handle when the PDF is loaded
-  function onPDFLoaded(pdf: any) {
-    setNumPages(pdf.numPages);
-  }
+
 
   return (
     <div>
-      <iframe
-        title="PDF Viewer"
-        src={pdfUrl}
-        width="100%"
-        height="500px"
-        frameBorder="0"
-        onLoad={() => onPDFLoaded(window.frames[0].document)}
-      />
-      {numPages && (
-        <p>
-          Page {pageNumber} of {numPages}
-        </p>
-      )}
+      <Document file={pdfUrl}>
+        <Page 
+        renderTextLayer={false}
+        renderAnnotationLayer={false}
+        pageNumber={pageNumber} 
+        width={612} 
+        height={792} 
+        />
+      </Document>
     </div>
   );
 };
