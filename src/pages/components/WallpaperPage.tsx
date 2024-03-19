@@ -4,27 +4,55 @@ import { useMediaQuery } from '../../util/useMediaQuery'
 import FolderItem from './FolderItem.tsx'
 import Button from './Button.tsx'
 
+import { useRef } from "react"
+
 import PDFViewer from './PdfViewer.tsx'
 
+import MarkdownViewer from './MarkdownViewer.tsx'
+import ReactDOM from 'react-dom';
+
+import Portfolio from './elements/Portfolio.tsx'
 
 export default function Wallpaper(){
     const [divs, setDivs] = useState<{ [id: string]: boolean }>({
         resumediv: false,
         portfoliodiv: false
-      });
-    
-      const toggleVisibility = (id: string) => {
-        setDivs({
-          ...divs,
-          [id]: !divs[id],
-        });
-      };
+    });
 
-      const handleClose = (id: string) => {
-        setDivs({
-          ...divs,
-          [id]: false,
-        });
+    const toggleVisibility = (id: string) => {
+    setDivs({
+        ...divs,
+        [id]: !divs[id],
+    });
+    };
+
+    const handleClose = (id: string) => {
+    setDivs({
+        ...divs,
+        [id]: false,
+    });
+    };
+
+    const scrollableContentRef = useRef<HTMLDivElement>(null);
+
+    const scrollStep = 150;
+
+    const handleScroll = (scrollOffset: number) => {
+        if (scrollableContentRef.current) {
+          const newScrollLeft = scrollableContentRef.current.scrollLeft + scrollOffset;
+          scrollableContentRef.current.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth',
+          });
+        }
+      };
+    
+      const handlePrev = () => {
+        handleScroll(-scrollStep);
+      };
+    
+      const handleNext = () => {
+        handleScroll(scrollStep);
       };
 
     return(
@@ -67,6 +95,11 @@ export default function Wallpaper(){
                                         <span>&times;</span>
                                     </button>
                                 </div>
+
+                                
+                                
+                                <Portfolio />
+                                
 
 
                             

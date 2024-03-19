@@ -10,11 +10,6 @@ interface PDFViewerProps {
 }
 
 const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, pageNumber }) => {
-  const pageStyle: React.CSSProperties = {
-    width: 612, // Width in points (8.5 inches)
-    height: 792, // Height in points (11 inches)
-  };
-
 
 
   return (
