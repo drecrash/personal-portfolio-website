@@ -16,7 +16,8 @@ import Portfolio from './elements/Portfolio.tsx'
 export default function Wallpaper(){
     const [divs, setDivs] = useState<{ [id: string]: boolean }>({
         resumediv: false,
-        portfoliodiv: false
+        portfoliodiv: false,
+        portfoliodiv1: false
     });
 
     const toggleVisibility = (id: string) => {
@@ -98,7 +99,34 @@ export default function Wallpaper(){
 
                                 
                                 
-                                <Portfolio />
+                                <div className=''>
+                                    <div>
+                                        <div className=''>
+                                            <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_folder_icon.png' name="portfolio-item-1"/>
+                                        </div>
+                                    </div>
+
+                                    <div className='ml-[50%]'>
+
+                                        <FolderItem id="portfoliodiv1" isVisible={divs.portfoliodiv1} onClose={toggleVisibility}>
+
+                                            <div className='bg-white ml-[40%] mt-[15%]'>
+                                                <div className=''>
+                                                    <button 
+                                                    className=''
+                                                    onClick={() => handleClose('portfoliodiv1')}>
+                                                        <span>&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+
+
+                                        </FolderItem>
+
+                                    </div>
+
+                                </div>
                                 
 
 
