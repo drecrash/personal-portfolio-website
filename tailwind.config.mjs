@@ -9,7 +9,8 @@ export default {
 			},
 			colors: {
 				"98-grey": '#c0c0c0',
-				'98-blue': "#008080"
+				'98-blue': "#008080",
+				"notepad-blue": "#0100a8"
 			}
 		},
 	},

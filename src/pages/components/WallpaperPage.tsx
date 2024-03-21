@@ -13,6 +13,8 @@ import ReactDOM from 'react-dom';
 
 import Portfolio from './elements/Portfolio.tsx'
 
+import Notepad from './elements/Notepad.tsx'
+
 export default function Wallpaper(){
     const [divs, setDivs] = useState<{ [id: string]: boolean }>({
         resumediv: false,
@@ -124,32 +126,29 @@ export default function Wallpaper(){
 
                         <FolderItem id="portfoliodiv1" isVisible={divs.portfoliodiv1} onClose={toggleVisibility}>
 
-                            <div className='bg-white absolute ml-[50%] absolute mt-[15%]'>
-                                <div className=''>
-                                    <button 
-                                    className=''
-                                    onClick={() => handleClose('portfoliodiv1')}>
-                                        <span>&times;</span>
-                                    </button>
-                                </div>
+                            <Notepad title="Stock Market Sim in Discord" onClose={() => handleClose('portfoliodiv1')}>
 
-                                <div className='mb-[2%] ml-[10%] mr-[5%]'>
-                                    <h1 className='text-3xl font-extrabold'>Stock Market Sim in Discord</h1>
-                                    <p>
-                                        - timestamp: jan 2023 <br/>
-                                        - <a href="https://github.com/drecrash/stock-market-bot" className='text-sky-900 underline'>source code</a>
-                                    </p>
-                                    <br/>
-                                    <p>
-                                        - i created a simple stock market simulator based in a Discord bot for a client desiring to feature a stock market in their virtual universe. <br/>
-                                        - the market features instant buy/sell, as well as buy/sell orders. <br/>
-                                        - it has the capability to update a Google Sheet of stock tickers as stock is bought and sold. <br/>
-                                    </p>
+                                <div>
+
+
+                                    <div className='mb-[2%] ml-[1%] mr-[5%]'>
+                                        <p>
+                                            - timestamp: jan 2023 <br/>
+                                            - <a href="https://github.com/drecrash/stock-market-bot" className='text-sky-900 underline'>source code</a>
+                                        </p>
+                                        <br/>
+                                        <p>
+                                            - i created a simple stock market simulator based in a Discord bot for a client desiring to feature a stock market in their virtual universe. <br/>
+                                            - the market features instant buy/sell, as well as buy/sell orders. <br/>
+                                            - it has the capability to update a Google Sheet of stock tickers as stock is bought and sold. <br/>
+                                        </p>
+                                    </div>
+
                                 </div>
 
 
 
-                            </div>
+                            </Notepad>
 
                         </FolderItem>
 
