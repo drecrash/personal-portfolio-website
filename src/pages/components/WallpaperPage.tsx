@@ -19,7 +19,8 @@ export default function Wallpaper(){
     const [divs, setDivs] = useState<{ [id: string]: boolean }>({
         resumediv: false,
         portfoliodiv: false,
-        portfoliodiv1: false
+        portfoliodiv1: false,
+        blogdiv: false
     });
 
     const toggleVisibility = (id: string) => {
@@ -62,7 +63,7 @@ export default function Wallpaper(){
         <div className=''>
             <div className='bg-98-blue h-screen '>
                 <div className='relative'>
-                    <div className='grid-cols-2 grid pl-20'>
+                    <div className='grid-cols-3 grid pl-20'>
                         <div className='absolute'>
                             <Button id="resumediv" onClick={toggleVisibility} icon='windows_txt_icon.png' name="resume"/>
                         </div>
@@ -126,7 +127,7 @@ export default function Wallpaper(){
 
                         <FolderItem id="portfoliodiv1" isVisible={divs.portfoliodiv1} onClose={toggleVisibility}>
 
-                            <Notepad title="Stock Market Sim in Discord" onClose={() => handleClose('portfoliodiv1')}>
+                            <Notepad title="discord-stock-market-sim.txt" onClose={() => handleClose('portfoliodiv1')}>
 
                                 <div>
 
@@ -154,10 +155,34 @@ export default function Wallpaper(){
 
                     </div>
 
+                    {/*  Blog Content Stuff */}
 
-                    <div>
+                    <div className='absolute pt-20'>
+                            
+                        <div className=''>
+                            <Button id="blogdiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="blog"/>
+                        </div>
+
+                        <div className='w-96 h-64 absolute'>
+
+                            <FolderItem id="blogdiv" isVisible={divs.blogdiv} onClose={toggleVisibility}>
+
+                                <Notepad title="personal-notes.txt" onClose={() => handleClose('blogdiv')}>
+
+                                    <div>
+                                        <div className=''>
+                                            <p>yet to come</p>
+                                        </div>
+
+                                    </div>
 
 
+
+                                </Notepad>
+
+                            </FolderItem>
+
+                        </div>
 
                     </div>
 
