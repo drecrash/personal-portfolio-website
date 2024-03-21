@@ -21,7 +21,7 @@ const Button = ({ id, onClick, icon, name }: ButtonProps) => {
             />
         </div>
 
-        <div className='mt-[-25%]'>
+        <div className='mt-[-10%]'>
             <p>{name}</p>
         </div>
 

@@ -87,52 +87,72 @@ export default function Wallpaper(){
                             <Button id="portfoliodiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="portfolio"/>
                         </div>
                         
-                        <FolderItem id="portfoliodiv" isVisible={divs.portfoliodiv} onClose={toggleVisibility}>
-                            <div className='bg-white ml-[40%] absolute mt-[15%]'>
+                        <div className=''>
+                            <FolderItem id="portfoliodiv" isVisible={divs.portfoliodiv} onClose={toggleVisibility}>
+                                <div className='bg-white ml-[40%] absolute mt-[15%] w-96 h-64 flex'>
+                                    <div className=''>
+                                        <button 
+                                        className=''
+                                        onClick={() => handleClose('portfoliodiv')}>
+                                            <span>&times;</span>
+                                        </button>
+                                    </div>
+
+                                    
+                                    
+                                    <div className=''>
+                                        <div>
+                                            <div className=''>
+                                                <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_folder_icon.png' name="Discord Stock Market Simulator"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+
+
+                                
+                                </div>
+                            
+                            </FolderItem>
+                        </div>
+                    </div>
+
+                    {/*  Portfolio Content Stuff */}
+
+                    <div className=''>
+
+                        <FolderItem id="portfoliodiv1" isVisible={divs.portfoliodiv1} onClose={toggleVisibility}>
+
+                            <div className='bg-white absolute ml-[50%] absolute mt-[15%]'>
                                 <div className=''>
                                     <button 
                                     className=''
-                                    onClick={() => handleClose('portfoliodiv')}>
+                                    onClick={() => handleClose('portfoliodiv1')}>
                                         <span>&times;</span>
                                     </button>
                                 </div>
 
-                                
-                                
-                                <div className=''>
-                                    <div>
-                                        <div className=''>
-                                            <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_folder_icon.png' name="portfolio-item-1"/>
-                                        </div>
-                                    </div>
-
-                                    <div className='ml-[50%]'>
-
-                                        <FolderItem id="portfoliodiv1" isVisible={divs.portfoliodiv1} onClose={toggleVisibility}>
-
-                                            <div className='bg-white ml-[40%] mt-[15%]'>
-                                                <div className=''>
-                                                    <button 
-                                                    className=''
-                                                    onClick={() => handleClose('portfoliodiv1')}>
-                                                        <span>&times;</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            
-
-
-                                        </FolderItem>
-
-                                    </div>
-
+                                <div className='mb-[2%] ml-[10%] mr-[5%]'>
+                                    <h1 className='text-3xl font-extrabold'>Stock Market Sim in Discord</h1>
+                                    <p>
+                                        - timestamp: jan 2023 <br/>
+                                        - <a href="https://github.com/drecrash/stock-market-bot" className='text-sky-900 underline'>source code</a>
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        - i created a simple stock market simulator based in a Discord bot for a client desiring to feature a stock market in their virtual universe. <br/>
+                                        - the market features instant buy/sell, as well as buy/sell orders. <br/>
+                                        - it has the capability to update a Google Sheet of stock tickers as stock is bought and sold. <br/>
+                                    </p>
                                 </div>
-                                
 
 
-                            
+
                             </div>
+
                         </FolderItem>
+
                     </div>
 
                 </div>
