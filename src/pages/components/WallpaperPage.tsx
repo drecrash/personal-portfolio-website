@@ -62,7 +62,7 @@ export default function Wallpaper(){
                 <div className='relative'>
                     <div className='grid-cols-2 grid pl-20'>
                         <div className='absolute'>
-                            <Button id="resumediv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="resume"/>
+                            <Button id="resumediv" onClick={toggleVisibility} icon='windows_txt_icon.png' name="resume"/>
                         </div>
                         <FolderItem id="resumediv" isVisible={divs.resumediv} onClose={toggleVisibility}>
                             <div className='bg-white ml-[40%] absolute mt-[15%]'>
@@ -76,7 +76,7 @@ export default function Wallpaper(){
 
 
                                 <div>
-                                    <PDFViewer pdfUrl="resumeMarch2024.pdf" pageNumber={1}/>
+                                    <PDFViewer pdfUrl="mainResume.pdf" pageNumber={1}/>
                                 </div>
                             </div>
                         </FolderItem>
@@ -103,7 +103,7 @@ export default function Wallpaper(){
                                     <div className=''>
                                         <div>
                                             <div className=''>
-                                                <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_folder_icon.png' name="Discord Stock Market Simulator"/>
+                                                <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_txt_icon.png' name="Discord Stock Market Simulator"/>
                                             </div>
                                         </div>
 
@@ -171,7 +171,7 @@ export default function Wallpaper(){
 
                 <div className='pl-[20%] pt-[13%]'>
                     <h1 className='text-4xl'>
-                        i'm andre
+                        i'm dre
                     </h1>
                     <h1 className='text-3xl'>
                         your favorite backend engineer
