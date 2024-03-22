@@ -15,6 +15,8 @@ import Portfolio from './elements/Portfolio.tsx'
 
 import Notepad from './elements/Notepad.tsx'
 
+import Blog from './Blog.tsx'
+
 export default function Wallpaper(){
     const [divs, setDivs] = useState<{ [id: string]: boolean }>({
         resumediv: false,
@@ -157,25 +159,20 @@ export default function Wallpaper(){
 
                     {/*  Blog Content Stuff */}
 
-                    <div className='absolute pt-20'>
+                    <div className='absolute mt-20'>
                             
                         <div className=''>
                             <Button id="blogdiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="blog"/>
                         </div>
 
-                        <div className='w-96 h-64 absolute'>
+                        <div className='w-[1000px] absolute'>
 
                             <FolderItem id="blogdiv" isVisible={divs.blogdiv} onClose={toggleVisibility}>
 
                                 <Notepad title="personal-notes.txt" onClose={() => handleClose('blogdiv')}>
 
-                                    <div>
-                                        <div className=''>
-                                            <p>yet to come</p>
-                                        </div>
 
-                                    </div>
-
+                                    <Blog/>
 
 
                                 </Notepad>
