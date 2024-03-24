@@ -103,7 +103,7 @@ export default function Wallpaper(){
 
                                     
 
-                                    <div className=''>
+                                    <div className='grid grid-cols-3 text-center'>
                                         <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_txt_icon.png' name="Discord Stock Market Simulator"/>
                                     </div>
                                 
