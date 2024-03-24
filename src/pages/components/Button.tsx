@@ -5,10 +5,9 @@ interface ButtonProps {
   onClick: (id: string) => void;
   icon: string;
   name: string;
-  width?: string;
 }
 
-const Button = ({ id, onClick, icon, name, width='20'}: ButtonProps) => {
+const Button = ({ id, onClick, icon, name}: ButtonProps) => {
     return(
 
     <div className='relative flex flex-col items-center'>
@@ -18,7 +17,7 @@ const Button = ({ id, onClick, icon, name, width='20'}: ButtonProps) => {
             src={icon}
             alt='Open Folder'
             onClick={() => onClick(id)}
-            className={`cursor-pointer w-${width} h-${width}`}
+            className={`cursor-pointer w-20 h-20`}
             />
         </div>
 
