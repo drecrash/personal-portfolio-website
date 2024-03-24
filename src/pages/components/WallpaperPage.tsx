@@ -190,7 +190,7 @@ export default function Wallpaper(){
 
                 </div>
 
-                <div className='pl-[20%] md:pt-[13%] sm:pt-[10%]'>
+                <div className='pl-[20%] pt-[50%] md:pt-[13%]'>
                     <h1 className='text-4xl'>
                         i'm dre
                     </h1>

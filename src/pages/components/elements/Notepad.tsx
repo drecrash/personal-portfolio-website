@@ -23,14 +23,13 @@ const Notepad = ({children, title, onClose}: Props) => {
                     <p className='ml-1 float-left font-black text-white'>{title}</p>
 
 
-                    <div className='mr-1 aspect-square'>
-                        <button 
-                        className=''
-                        onClick={onClose}
-                        >
-                            <span className='text-black bg-98-grey pl-1 pr-1 text-xs'>&times;</span>
-                        </button>
-                    </div>
+                    <button 
+                    className='mr-1'
+                    onClick={onClose}
+                    >
+                        <span className='text-black bg-98-grey pl-1 pr-1 text-xs'>&times;</span>
+                    </button>
+
 
                     
                 </div>
