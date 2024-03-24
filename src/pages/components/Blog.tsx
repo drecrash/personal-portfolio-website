@@ -7,6 +7,15 @@ export default function Blog(){
 
         <div className='ml-3 mr-3 text-wrap'>
 
+            <div className='text-wrap' id="blog-post-2">
+                <h1 className='text-2xl font-extrabold'>Very Mobile Friendly</h1>
+                <p>
+                    Nobody on mobile can see past the second post right now lmao. This is great. Also I should probably start using this blog 
+                    for actual blog stuff and not random tidbits.
+                </p>
+            </div>
+
+            <p>====================</p>
 
             <div className='text-wrap' id="blog-post-2">
                 <h1 className='text-2xl font-extrabold'>Second Post</h1>

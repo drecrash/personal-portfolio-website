@@ -67,10 +67,14 @@ export default function Wallpaper(){
         <div className=''>
             <div className='bg-98-blue h-screen '>
                 <div className='relative'>
-                    <div className='grid-cols-3 grid pl-20'>
-                        <div className='absolute'>
+                    <div className=''>
+
+                        <div className='absolute grid-cols-2 grid'>
                             <Button id="resumediv" onClick={toggleVisibility} icon='windows_txt_icon.png' name="resume"/>
+                            <Button id="portfoliodiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="portfolio"/>
+                            <Button id="blogdiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="blog"/>
                         </div>
+
                         <FolderItem id="resumediv" isVisible={divs.resumediv} onClose={toggleVisibility}>
                             <div className='bg-white ml-[40%] absolute mt-[15%]'>
                                 <CloseButton id='resumediv' onClick={handleClose}/>
@@ -83,10 +87,6 @@ export default function Wallpaper(){
                     </div>
 
                     <div>
-                        <div className='absolute'>
-                            <Button id="portfoliodiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="portfolio"/>
-                        </div>
-                        
                         <div className=''>
                             <FolderItem id="portfoliodiv" isVisible={divs.portfoliodiv} onClose={toggleVisibility}>
                                 <div className='bg-white ml-[40%] absolute mt-[15%] w-96 h-64 flex'>
@@ -148,25 +148,18 @@ export default function Wallpaper(){
 
                     {/*  Blog Content Stuff */}
 
-                    <div className='absolute mt-20'>
-                            
-                        <div className=''>
-                            <Button id="blogdiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="blog"/>
-                        </div>
+                    <div className='absolute mt-20 w-[50%] sm:w-[40%] fixed'>
 
-                        <div className='w-[1000px] absolute'>
+                        <FolderItem id="blogdiv" isVisible={divs.blogdiv} onClose={toggleVisibility}>
 
-                            <FolderItem id="blogdiv" isVisible={divs.blogdiv} onClose={toggleVisibility}>
+                            <Notepad title="personal-notes.txt" onClose={() => handleClose('blogdiv')} maxHeight='500px'>
 
-                                <Notepad title="personal-notes.txt" onClose={() => handleClose('blogdiv')}>
+                                <Blog/>
 
-                                    <Blog/>
+                            </Notepad>
 
-                                </Notepad>
+                        </FolderItem>
 
-                            </FolderItem>
-
-                        </div>
 
                     </div>
 
