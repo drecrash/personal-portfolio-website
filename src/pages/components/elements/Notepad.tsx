@@ -9,7 +9,7 @@ interface Props {
 
 const Notepad = ({children, title, onClose, maxHeight}: Props) => {
   return (
-    <div className='inline-block border-t border-l border-black border-b border-r border-white'>
+    <div className='inline-block border-t border-l border-black border-b border-r border-white absolute'>
       <div className='border-8 border-98-grey bg-white' style={{ maxHeight: maxHeight, overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
         <div className='flex items-center justify-between h-6 bg-notepad-blue'>
           <p className='ml-1 float-left font-black text-white'>{title}</p>
