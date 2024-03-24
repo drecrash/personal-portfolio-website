@@ -18,6 +18,7 @@ const Button = ({ id, onClick, icon, name}: ButtonProps) => {
             alt='Open Folder'
             onClick={() => onClick(id)}
             className={`cursor-pointer w-20 h-20`}
+            onTouchStart={() => onClick(id)}
             />
         </div>
 
