@@ -24,7 +24,11 @@ export default function Wallpaper(){
         resumediv: false,
         portfoliodiv: false,
         portfoliodiv1: false,
-        blogdiv: false
+        blogdiv: false,
+        socialdiv: false,
+        githubsocial: false,
+        discordsocial: false,
+        phonebooksocial: false
     });
 
     const toggleVisibility = (id: string) => {
@@ -33,6 +37,10 @@ export default function Wallpaper(){
         [id]: !divs[id],
     });
     };
+
+    const openUrl = (url: string) => {
+        window.open(url, '_blank')
+    }
 
     const handleClose = (id: string) => {
     setDivs({
@@ -73,6 +81,7 @@ export default function Wallpaper(){
                             <Button id="resumediv" onClick={toggleVisibility} icon='windows_txt_icon.png' name="resume"/>
                             <Button id="portfoliodiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="portfolio"/>
                             <Button id="blogdiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="blog"/>
+                            <Button id="socialdiv" onClick={toggleVisibility} icon='windows_folder_icon.png' name="socials"/>
                         </div>
 
                         <FolderItem id="resumediv" isVisible={divs.resumediv} onClose={toggleVisibility}>
@@ -93,16 +102,11 @@ export default function Wallpaper(){
                                     <CloseButton id='portfoliodiv' onClick={handleClose}/>
 
                                     
-                                    
-                                    <div className=''>
-                                        <div>
-                                            <div className=''>
-                                                <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_txt_icon.png' name="Discord Stock Market Simulator"/>
-                                            </div>
-                                        </div>
 
+                                    <div className=''>
+                                        <Button id="portfoliodiv1" onClick={toggleVisibility} icon='windows_txt_icon.png' name="Discord Stock Market Simulator"/>
                                     </div>
-                                    
+                                
 
 
                                 
@@ -164,6 +168,28 @@ export default function Wallpaper(){
                     </div>
 
 
+                    {/*  Social Stuff */}
+                    
+
+                    <div className=''>
+
+                        <FolderItem id="socialdiv" isVisible={divs.socialdiv} onClose={toggleVisibility}>
+
+                            <div className='bg-white ml-[40%] absolute mt-[15%] w-96 h-64 flex'>
+                                <Button id="https://github.com/drecrash" onClick={openUrl} icon='hyperlink_icon.png' name="Github" width='10'/>
+                            </div>                            
+
+                        </FolderItem>
+
+
+                    </div>
+
+
+                    {/* Socials Content */}
+
+                    <div className='absolute'>
+                        
+                    </div>
 
 
 
