@@ -26,6 +26,7 @@ const Notepad = ({children, title, onClose}: Props) => {
                     <button 
                     className='mr-1'
                     onClick={onClose}
+                    onTouchStart={onClose}
                     >
                         <span className='text-black bg-98-grey pl-1 pr-1 text-xs'>&times;</span>
                     </button>

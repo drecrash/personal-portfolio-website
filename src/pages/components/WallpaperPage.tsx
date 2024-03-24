@@ -2,7 +2,9 @@ import {motion}  from 'framer-motion'
 import {useState} from "react"
 import { useMediaQuery } from '../../util/useMediaQuery'
 import FolderItem from './FolderItem.tsx'
+
 import Button from './Button.tsx'
+import CloseButton from './CloseButton.tsx'
 
 import { useRef } from "react"
 
@@ -71,14 +73,7 @@ export default function Wallpaper(){
                         </div>
                         <FolderItem id="resumediv" isVisible={divs.resumediv} onClose={toggleVisibility}>
                             <div className='bg-white ml-[40%] absolute mt-[15%]'>
-                                <div className=''>
-                                    <button 
-                                    className=''
-                                    onClick={() => handleClose('resumediv')}>
-                                        <span>&times;</span>
-                                    </button>
-                                </div>
-
+                                <CloseButton id='resumediv' onClick={handleClose}/>
 
                                 <div>
                                     <PDFViewer pdfUrl="mainResume.pdf" pageNumber={1}/>
@@ -95,13 +90,7 @@ export default function Wallpaper(){
                         <div className=''>
                             <FolderItem id="portfoliodiv" isVisible={divs.portfoliodiv} onClose={toggleVisibility}>
                                 <div className='bg-white ml-[40%] absolute mt-[15%] w-96 h-64 flex'>
-                                    <div className=''>
-                                        <button 
-                                        className=''
-                                        onClick={() => handleClose('portfoliodiv')}>
-                                            <span>&times;</span>
-                                        </button>
-                                    </div>
+                                    <CloseButton id='portfoliodiv' onClick={handleClose}/>
 
                                     
                                     
@@ -171,9 +160,7 @@ export default function Wallpaper(){
 
                                 <Notepad title="personal-notes.txt" onClose={() => handleClose('blogdiv')}>
 
-
                                     <Blog/>
-
 
                                 </Notepad>
 
