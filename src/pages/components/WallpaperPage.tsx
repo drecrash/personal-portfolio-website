@@ -175,8 +175,16 @@ export default function Wallpaper(){
 
                         <FolderItem id="socialdiv" isVisible={divs.socialdiv} onClose={toggleVisibility}>
 
+                            
+
                             <div className='bg-white ml-[40%] absolute mt-[15%] w-96 h-64 flex'>
-                                <Button id="https://github.com/drecrash" onClick={openUrl} icon='hyperlink_icon.png' name="Github" width='10'/>
+                                <CloseButton id='socialdiv' onClick={handleClose}/>
+
+                                <div className='grid grid-cols-3'>
+                                    <Button id="https://github.com/drecrash" onClick={openUrl} icon='hyperlink_icon.png' name="Github"/>
+                                    <Button id="discordsocial" onClick={toggleVisibility} icon='windows_txt_icon.png' name="Discord"/>
+                                    <Button id="https://unstepped410.phonebook.today/" onClick={openUrl} icon='hyperlink_icon.png' name="Phonebook"/>
+                                </div>
                             </div>                            
 
                         </FolderItem>
@@ -188,6 +196,21 @@ export default function Wallpaper(){
                     {/* Socials Content */}
 
                     <div className='absolute'>
+
+                        <FolderItem id="discordsocial" isVisible={divs.discordsocial} onClose={toggleVisibility}>
+                            <div className='top-[50%] left-[50%]'>
+
+                                <Notepad title="discord-handle.txt" onClose={() => handleClose('discordsocial')} maxHeight='500px'>
+
+                                    <p>@drecrash</p>
+
+
+                                </Notepad>
+                            </div>
+
+
+
+                        </FolderItem>
                         
                     </div>
 
