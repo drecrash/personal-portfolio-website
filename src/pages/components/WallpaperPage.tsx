@@ -183,7 +183,7 @@ export default function Wallpaper(){
                                 <div className='grid grid-cols-3'>
                                     <Button id="https://github.com/drecrash" onClick={openUrl} icon='hyperlink_icon.png' name="Github"/>
                                     <Button id="discordsocial" onClick={toggleVisibility} icon='windows_txt_icon.png' name="Discord"/>
-                                    <Button id="https://walpapi237.phonebook.today/" onClick={openUrl} icon='hyperlink_icon.png' name="Phonebook"/>
+                                    <Button id="https://dre.phonebook.today/" onClick={openUrl} icon='hyperlink_icon.png' name="Phonebook"/>
                                 </div>
                             </div>                            
 
