@@ -1,56 +1,96 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+interface Post {
+    id: string;
+    date: string;
+    text_url: string | null;
+    media_list: string[] | null;
+}
 
-export default function Blog(){
+export default function Blog() {
+    const [posts, setPosts] = useState<Post[]>([]);
+    const apiUrl = "https://api.dre.ong/disbook/receive-posts"; // Replace with your actual API URL
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': 'taTr8vj2Ne7WDIMRlTLh31A026OF0T716yfGUIhp' // Replace with your actual token or other headers
+                    },
+                    body: JSON.stringify({})
+                });
+                const data = await response.json();
+                const postsArray = Object.entries(data).map(([id, post]) => ({
+                    id,
+                    ...post
+                })) as Post[];
+                setPosts(postsArray);
+            } catch (error) {
+                console.error("Error fetching posts data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const fetchText = async (url: string): Promise<string> => {
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'text/plain'
+                }
+            });
+            return await response.text();
+        } catch (error) {
+            console.log(error)
+            return `Error fetching text: ${error}`;
+        }
+    };
 
     return (
-
         <div className='ml-3 mr-3 text-wrap'>
-
-            <div className='text-wrap' id="blog-post-2">
-                <h1 className='text-2xl font-extrabold'>Very Mobile Friendly</h1>
-                <p>
-                    Nobody on mobile can see past the second post right now lmao. This is great. Also I should probably start using this blog 
-                    for actual blog stuff and not random tidbits.
-                </p>
-            </div>
-
-            <p>====================</p>
-
-            <div className='text-wrap' id="blog-post-2">
-                <h1 className='text-2xl font-extrabold'>Second Post</h1>
-                <p>
-                    This is literally just to see how the separation between posts looks
-                </p>
-            </div>
-
-            <p>====================</p>
-
-            <div className='text-wrap' id="blog-post-1">
-                <h1 className='text-2xl font-extrabold'>First Post</h1>
-                <p>
-                    This is my first post on this blog. Hopefully I'll be able to add some sort of search in the 
-                    future in order to find this easier. Right now all the posts are in straight HTML which isn't ideal. 
-                    In the future I hope to be able to have some sort of Markdown parser so I can write these blog posts in Markdown and 
-                    display them. <br/>
-                    Also, I haven't added any fonts yet and I think once I do that, the website will look a lot more like Windows 98--which 
-                    is what I'm going for.
-                </p>
-            </div>
-
+            {posts.map((post, index) => (
+                <React.Fragment key={post.id}>
+                    <div className='text-wrap' id={`blog-post-${index + 1}`}>
+                        <h1 className='text-2xl font-extrabold'>Post {index + 1}</h1>
+                        <p>
+                            {post.text_url
+                                ? <AsyncText fetchText={fetchText} url={post.text_url} />
+                                : "No text available."
+                            }
+                        </p>
+                        {post.media_list && post.media_list.length > 0 && (
+                            <div>
+                                {post.media_list.map((mediaUrl, i) => (
+                                    <img key={i} src={mediaUrl} alt="" className="max-w-xs m-2" />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <p>====================</p>
+                </React.Fragment>
+            ))}
         </div>
+    );
+}
 
+interface AsyncTextProps {
+    fetchText: (url: string) => Promise<string>;
+    url: string;
+}
 
+const AsyncText: React.FC<AsyncTextProps> = ({ fetchText, url }) => {
+    const [text, setText] = useState<string>("Loading...");
 
+    useEffect(() => {
+        fetchText(url).then(fetchedText => {
+            setText(fetchedText);
+        });
+    }, [fetchText, url]);
 
-
-    )
-
-
-
-
-
-
-
-
+    return <>{text.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}</>;
 }
