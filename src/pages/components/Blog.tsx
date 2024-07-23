@@ -66,7 +66,7 @@ export default function Blog() {
                             : "No text available."
                         }
                     </div>
-                    <p><b>====================</b></p>
+                    <p><b>========================================</b></p>
                 </React.Fragment>
             ))}
         </div>
