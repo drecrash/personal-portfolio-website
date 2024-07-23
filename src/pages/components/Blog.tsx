@@ -30,7 +30,7 @@ export default function Blog() {
                 const data = await response.json();
                 const postsArray = Object.entries(data.data).map(([id, post]) => ({
                     id,
-                    ...post
+                    ...post as Post
                 })) as Post[];
                 setPosts(postsArray);
             } catch (error) {
