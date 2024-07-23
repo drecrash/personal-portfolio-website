@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Remarkable } from 'remarkable';
+import 'tailwindcss/tailwind.css'; // Ensure Tailwind CSS is imported
+var md = new Remarkable();
+
+
 
 interface Post {
     id: string;
@@ -18,12 +23,12 @@ export default function Blog() {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'x-api-key': 'taTr8vj2Ne7WDIMRlTLh31A026OF0T716yfGUIhp' // Replace with your actual token or other headers
+                        'x-api-key': import.meta.env.PUBLIC_DISBOOK_API_KEY || "" // Replace with your actual token or other headers
                     },
                     body: JSON.stringify({})
                 });
                 const data = await response.json();
-                const postsArray = Object.entries(data).map(([id, post]) => ({
+                const postsArray = Object.entries(data.data).map(([id, post]) => ({
                     id,
                     ...post
                 })) as Post[];
@@ -56,41 +61,32 @@ export default function Blog() {
             {posts.map((post, index) => (
                 <React.Fragment key={post.id}>
                     <div className='text-wrap' id={`blog-post-${index + 1}`}>
-                        <h1 className='text-2xl font-extrabold'>Post {index + 1}</h1>
-                        <p>
-                            {post.text_url
-                                ? <AsyncText fetchText={fetchText} url={post.text_url} />
-                                : "No text available."
-                            }
-                        </p>
-                        {post.media_list && post.media_list.length > 0 && (
-                            <div>
-                                {post.media_list.map((mediaUrl, i) => (
-                                    <img key={i} src={mediaUrl} alt="" className="max-w-xs m-2" />
-                                ))}
-                            </div>
-                        )}
+                        {post.text_url && post.text_url !== "None"
+                            ? <AsyncMarkdown fetchText={fetchText} url={post.text_url} />
+                            : "No text available."
+                        }
                     </div>
-                    <p>====================</p>
+                    <p><b>====================</b></p>
                 </React.Fragment>
             ))}
         </div>
     );
 }
 
-interface AsyncTextProps {
+interface AsyncMarkdownProps {
     fetchText: (url: string) => Promise<string>;
     url: string;
 }
 
-const AsyncText: React.FC<AsyncTextProps> = ({ fetchText, url }) => {
-    const [text, setText] = useState<string>("Loading...");
+const AsyncMarkdown: React.FC<AsyncMarkdownProps> = ({ fetchText, url }) => {
+    const [html, setHtml] = useState<string>("Loading...");
+    const md = new Remarkable();
 
     useEffect(() => {
         fetchText(url).then(fetchedText => {
-            setText(fetchedText);
+            setHtml(md.render(fetchedText));
         });
     }, [fetchText, url]);
 
-    return <>{text.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}</>;
+    return <div className="prose prose-h1:mb-[-5%]" dangerouslySetInnerHTML={{ __html: html }} />;
 }
