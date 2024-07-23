@@ -29,8 +29,8 @@ export default function Blog() {
                 });
                 const data = await response.json();
                 const postsArray = Object.entries(data.data).map(([id, post]) => ({
-                    id,
-                    ...post as Post
+                    ...post as Post,
+                    id
                 })) as Post[];
                 setPosts(postsArray);
             } catch (error) {
