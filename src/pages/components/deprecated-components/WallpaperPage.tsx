@@ -1,7 +1,7 @@
 import {motion}  from 'framer-motion'
 import {useState} from "react"
 import { useEffect } from "react"
-import { useMediaQuery } from '../../util/useMediaQuery'
+import { useMediaQuery } from '../../../util/useMediaQuery.tsx'
 import FolderItem from './FolderItem.tsx'
 
 import Button from './Button.tsx'
