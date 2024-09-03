@@ -1,7 +1,6 @@
 import {motion}  from 'framer-motion'
 import {useState} from "react"
-import { useEffect } from "react"
-import { useMediaQuery } from '../../../util/useMediaQuery.tsx'
+import { useMediaQuery } from '../../util/useMediaQuery'
 import FolderItem from './FolderItem.tsx'
 
 import Button from './Button.tsx'
@@ -72,25 +71,6 @@ export default function Wallpaper(){
         handleScroll(scrollStep);
       };
 
-      const parentDivRef = useRef<HTMLDivElement>(null);
-      const [postNumber, setPostNumber] = useState<string>("None");
-      useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const urlParams = new URLSearchParams(window.location.search);
-            const param = urlParams.get('openFolder');
-            const postIndex = urlParams.get('post');
-
-            if (param) {
-                toggleVisibility(param);
-            }
-            if (postIndex){
-                
-                setPostNumber(postIndex);
-            }
-        }
-    }, []);
-    
-    
     return(
         <div className=''>
             <div className='bg-98-blue h-screen '>
@@ -178,7 +158,7 @@ export default function Wallpaper(){
 
                             <Notepad title="personal-notes.txt" onClose={() => handleClose('blogdiv')} maxHeight='500px'>
 
-                                <Blog post_num={postNumber}/>
+                                <Blog/>
 
                             </Notepad>
 

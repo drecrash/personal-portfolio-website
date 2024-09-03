@@ -1,14 +1,13 @@
 ---
-import Nav from './components/deprecated-components/Nav'
+import Nav from './components/Nav'
 import MainLayout from "../layouts/main-layout.astro"
-// import Wallpaper from "./components/deprecated-components/WallpaperPage"
-import HomePage from "./HomePage"
+import Wallpaper from "./components/WallpaperPage"
 ---
 
 
 <MainLayout title="dev">
 
 <div>
-	<HomePage client:load/>
+	<Wallpaper client:load/>
 </div>
 </MainLayout>

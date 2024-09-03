@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Remarkable } from 'remarkable';
-import 'tailwindcss/tailwind.css';
+import 'tailwindcss/tailwind.css'; // Ensure Tailwind CSS is imported
+var md = new Remarkable();
 
-const md = new Remarkable();
+
 
 interface Post {
     id: string;
@@ -11,15 +12,10 @@ interface Post {
     media_list: string[] | null;
 }
 
-interface BlogComponentProps {
-    post_num: string;
-}
-
-const Blog: React.FC<BlogComponentProps> = ({ post_num }) => {
+export default function Blog() {
     const [posts, setPosts] = useState<Post[]>([]);
-    const apiUrl = "https://api.dre.ong/disbook/receive-posts"; 
-    console.log(post_num)
-    post_num = "None"
+    const apiUrl = "https://api.dre.ong/disbook/receive-posts"; // Replace with your actual API URL
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -27,7 +23,7 @@ const Blog: React.FC<BlogComponentProps> = ({ post_num }) => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'x-api-key': import.meta.env.PUBLIC_DISBOOK_API_KEY || "" 
+                        'x-api-key': import.meta.env.PUBLIC_DISBOOK_API_KEY || "" // Replace with your actual token or other headers
                     },
                     body: JSON.stringify({})
                 });
@@ -55,21 +51,10 @@ const Blog: React.FC<BlogComponentProps> = ({ post_num }) => {
             });
             return await response.text();
         } catch (error) {
-            console.log(error);
+            console.log(error)
             return `Error fetching text: ${error}`;
         }
     };
-
-    useEffect(() => {
-        if (post_num !== "None") {
-            console.log(post_num)
-            const postElement = document.getElementById(`blog-post-${post_num}`);
-            
-            if (postElement) {
-                postElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [post_num, posts]);
 
     return (
         <div className='ml-3 mr-3 text-wrap'>
@@ -86,7 +71,7 @@ const Blog: React.FC<BlogComponentProps> = ({ post_num }) => {
             ))}
         </div>
     );
-};
+}
 
 interface AsyncMarkdownProps {
     fetchText: (url: string) => Promise<string>;
@@ -104,6 +89,4 @@ const AsyncMarkdown: React.FC<AsyncMarkdownProps> = ({ fetchText, url }) => {
     }, [fetchText, url]);
 
     return <div className="prose prose-h1:mb-[-5%]" dangerouslySetInnerHTML={{ __html: html }} />;
-};
-
-export default Blog;
+}
