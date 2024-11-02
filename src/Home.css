@@ -1,0 +1,70 @@
+.row{
+    margin-top: 2rem;
+}
+
+.row{
+    display: flex;
+    margin-left: 1%;
+}
+
+.brief-intro, .experience-pad{
+    width: 40%;
+}
+
+
+.link-pad, .skills-pad{
+    width: 20%;
+}
+
+.skills-pad h1, .contact-pad h1{
+    margin-bottom: -5%;
+}
+
+@media (min-width: 768px){
+    .link-pad{
+        right: 0;
+        margin-left: 20%;
+    }
+    
+    .skills-pad{
+        margin-left: 30%;
+        right: 0;
+    }
+    
+
+    .experience-pad{
+        margin-left: 10%;
+    }
+
+    .contact-pad {
+        margin-left: 20%;
+    }
+
+}
+
+
+@media (max-width: 768px){
+
+    .brief-intro{
+        margin: 0 auto;   
+        width: 80%;   
+    }
+
+    .row{
+        display:inline-block;
+    }
+
+    .row > *{
+        margin: 0 auto;
+        width: 80%;
+        margin-top: 1rem;
+    }
+
+
+    
+
+}
+
+
+
+

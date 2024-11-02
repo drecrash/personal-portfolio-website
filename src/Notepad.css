@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'windows-levi'; /*a name to be used later*/
+    src: url('./assets/fonts/windows-levi.ttf'); /*URL to font*/
+}
+
+
+*{
+    font-family: 'windows-levi';
+}
+
+.notepad-header{
+    background-color: rgb(3, 3, 177);
+    font-size: 1.2rem;
+}
+
+
+.notepad-blue{
+    display: inline-block;
+    position: relative;
+}
+
+.notepad-blue img{
+    float: left;
+    margin-left: -0.5rem;
+    margin-bottom: -0.5rem;
+    margin-top: -0.5rem;
+}
+.notepad-wrapper{
+    border: 4px solid rgb(184, 180, 180);
+
+}
+
+.notepad-title{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100%;
+    padding-left: 0.5rem;
+    color: white;
+    font-weight: bolder;
+    transform: translateY(-50%);
+    
+}
+
+.navbar{
+    background-color: gray;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+
+.navbar ul{
+    list-style: none;
+    margin: auto;
+    margin-left: -2rem;
+}
+
+.navbar li{
+    display: inline-block;
+    margin-right: 1rem;
+    color: black; 
+}
+
+
+.notepad-contents{
+    margin-top: 1rem;
+    border: 2px solid black;
+    background-color: white;
+    padding: 0 0 0 1rem;
+}
+
+.notepad-contents p{
+    font-weight: 100;
+}
+
+.notepad-contents > *{
+    background-color: white;
+}
